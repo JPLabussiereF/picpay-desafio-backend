@@ -21,11 +21,14 @@ public class Transaction {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
     private BigDecimal amount;
-    @ManyToMany
+
+    @ManyToOne
     @JoinColumn(name = "sender_id")
     private User sender;
-    @ManyToMany
+
+    @ManyToOne
     @JoinColumn(name = "receiver_id")
     private User receiver;
+
     private LocalDateTime timestamp;
 }
